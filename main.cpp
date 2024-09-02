@@ -66,8 +66,6 @@ int main()
 
         uimanager.render();
 
-        DrawFPS(0, 0);
-
         EndDrawing();
     }
 

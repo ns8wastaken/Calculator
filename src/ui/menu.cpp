@@ -9,9 +9,21 @@ Menu::Menu(Rectangle menuRect, Color color, Font* font)
 {}
 
 
+const Rectangle& Menu::getRect()
+{
+    return m_rect;
+}
+
+
 void Menu::toggle()
 {
     m_open = !m_open;
+}
+
+
+bool Menu::isOpen()
+{
+    return m_open;
 }
 
 

@@ -15,7 +15,9 @@ public:
     void addButton(Rectangle buttonRect, Color color, Menu* menuChild, const char* text);
     void addLabel(Rectangle labelRect, Color color, const char* text);
 
+    const Rectangle& getRect();
     void toggle();
+    bool isOpen();
 
 private:
     Rectangle m_rect;

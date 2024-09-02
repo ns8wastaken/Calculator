@@ -32,7 +32,11 @@ void UIManager::render()
 
 void UIManager::update(Vector2 mousePos)
 {
-    for (Menu& menu : m_menus) {
-        menu.update(mousePos);
+    bool collision = false;
+    for (std::vector<Menu>::reverse_iterator menu_it = m_menus.rbegin(); menu_it != m_menus.rend(); ++menu_it) {
+        if (!collision) menu_it->update(mousePos);
+
+        if (CheckCollisionPointRec(mousePos, menu_it->getRect()) && menu_it->isOpen())
+            collision = true;
     }
 }
