@@ -11,7 +11,7 @@ Calculator::Calculator()
 
 void Calculator::render()
 {
-    DrawTextEx(m_font, getEquation().c_str(), Vector2{ 20, 20 }, 50, 0, BLACK);
+    DrawTextEx(m_font, getEquation(), Vector2{ 20, 20 }, 50, 0, BLACK);
     DrawRectangle(20 + getCursorIndex() * 26, 20, 4, 40, BLACK);
 
     DrawTextEx(m_font, TextFormat("%.9f", result), Vector2{ 20, 200 }, 50, 0, BLACK);
@@ -59,9 +59,9 @@ void Calculator::removeCharBeforeCursor()
 }
 
 
-std::string Calculator::getEquation() const
+const char* Calculator::getEquation() const
 {
-    return m_Equation;
+    return m_Equation.c_str();
 }
 
 

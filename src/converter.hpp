@@ -4,84 +4,84 @@
 class UnitConverter
 {
 public:
-enum class LengthUnit
-{
-    Kilometer,
-    Meter,
-    Centimeter,
-    Millimeter,
-    Micrometer,
-    Nanometer,
+    enum class LengthUnit
+    {
+        Kilometer,
+        Meter,
+        Centimeter,
+        Millimeter,
+        Micrometer,
+        Nanometer,
 
-    Mile,
-    Yard,
-    Foot,
-    Inch,
+        Mile,
+        Yard,
+        Foot,
+        Inch,
 
-    Size,
-    Begin = 0
-};
+        Size,
+        Begin = 0
+    };
 
-enum class MassUnit
-{
-    Metric_Ton,
-    Kilogram,
-    Gram,
-    Centigram,
-    Milligram,
-    Microgram,
+    enum class MassUnit
+    {
+        Metric_Ton,
+        Kilogram,
+        Gram,
+        Centigram,
+        Milligram,
+        Microgram,
 
-    Imperial_Ton,
-    US_Ton,
-    Pound,
-    Ounce,
+        Imperial_Ton,
+        US_Ton,
+        Pound,
+        Ounce,
 
-    Size,
-    Begin = 0
-};
+        Size,
+        Begin = 0
+    };
 
-enum class TemperatureUnit
-{
-    Celsius,
-    Fahrenheit,
-    Kelvin,
+    enum class TemperatureUnit
+    {
+        Celsius,
+        Fahrenheit,
+        Kelvin,
 
-    Size,
-    Begin = 0
-};
+        Size,
+        Begin = 0
+    };
 
-enum class AngleUnit
-{
-    Arcsecond,
-    Degree,
-    Gradian,
-    Milliradian,
-    Minute_of_Arc,
-    Radian,
+    enum class AngleUnit
+    {
+        Arcsecond,
+        Degree,
+        Gradian,
+        Milliradian,
+        Minute_of_Arc,
+        Radian,
 
-    Size,
-    Begin = 0
-};
+        Size,
+        Begin = 0
+    };
 
-enum class DigitalStorageUnit
-{
-    Bit,
-    Kilobit,
-    Megabit,
-    Gigabit,
-    Terabit,
-    Petabit,
+    enum class DigitalStorageUnit
+    {
+        Bit,
+        Kilobit,
+        Megabit,
+        Gigabit,
+        Terabit,
+        Petabit,
 
-    Byte,
-    Kilobyte,
-    Megabyte,
-    Gigabyte,
-    Terabyte,
-    Petabyte,
+        Byte,
+        Kilobyte,
+        Megabyte,
+        Gigabyte,
+        Terabyte,
+        Petabyte,
 
-    Size,
-    Begin = 0
-};
+        Size,
+        Begin = 0
+    };
 
     template <typename UnitType>
     double convert(double value, UnitType from, UnitType to);

@@ -1,6 +1,14 @@
 #include "menu.hpp"
 
 
+Menu::Menu()
+    : m_rect(Rectangle{ 0, 0, 0, 0 }),
+      m_color(Color{ 0, 0, 0, 255 }),
+      m_colorDark(Color{ 0, 0, 0, 255 }),
+      p_font(nullptr)
+{}
+
+
 Menu::Menu(Rectangle menuRect, Color color, Font* font)
     : m_rect(menuRect),
       m_color(color),
@@ -12,6 +20,12 @@ Menu::Menu(Rectangle menuRect, Color color, Font* font)
 const Rectangle& Menu::getRect()
 {
     return m_rect;
+}
+
+
+const Label& Menu::getLabel(size_t index)
+{
+    return m_labels[index];
 }
 
 
@@ -75,5 +89,9 @@ void Menu::render()
 
     for (Button& button : m_buttons) {
         button.render();
+    }
+
+    for (Label& label : m_labels) {
+        label.render();
     }
 }

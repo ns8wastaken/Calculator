@@ -6,6 +6,12 @@ Label::Label(Rectangle rect, Color color, const char* text, Font* font)
 {}
 
 
+void Label::changeText(const char* newText)
+{
+    m_text = newText;
+}
+
+
 void Label::render()
 {
     DrawRectangleRec(m_rect, { 200, 200, 200, 255 });

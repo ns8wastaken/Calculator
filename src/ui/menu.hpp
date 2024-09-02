@@ -8,12 +8,15 @@
 class Menu
 {
 public:
+    Menu();
     Menu(Rectangle menuRect, Color color, Font* font);
     void update(Vector2 mousePos);
     void render();
 
     void addButton(Rectangle buttonRect, Color color, Menu* menuChild, const char* text);
     void addLabel(Rectangle labelRect, Color color, const char* text);
+
+    const Label& getLabel(size_t index);
 
     const Rectangle& getRect();
     void toggle();
@@ -27,6 +30,6 @@ private:
 
     bool m_open = false;
 
-    std::vector<Button> m_buttons;
-    std::vector<Label> m_labels;
+    std::vector<Button> m_buttons{};
+    std::vector<Label> m_labels{};
 };

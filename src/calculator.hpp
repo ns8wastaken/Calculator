@@ -1,4 +1,5 @@
 #pragma once
+#include <raylib.h>
 #include <string>
 #include <deque>
 #include <algorithm>
@@ -17,7 +18,7 @@ public:
     void addCharToEquation(int char_);
     void removeCharBeforeCursor();
 
-    std::string getEquation() const;
+    const char* getEquation() const;
     void calculate();
 
     void moveCursor(int offset);
