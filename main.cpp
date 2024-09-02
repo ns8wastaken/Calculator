@@ -11,6 +11,121 @@
 #define CONVERSION_MENU_HEIGHT 700
 
 
+void setupUI(UIManager& uim)
+{
+    uim.addMenu("Base", Rectangle{ 20, 280, CALC_WIDTH - 40, CALC_HEIGHT - 300 }, Color{ 175, 175, 175, 255 });
+    uim.getMenu("Base").toggle();
+    uim.getMenu("Base").addButton(Rectangle{ 20, 20, 210, 50 }, Color{ 150, 150, 150, 255 }, &uim.getMenu("Conversions Base"), "Conversions");
+
+
+    uim.addMenu("Conversions Base",
+                Rectangle{ (CALC_WIDTH - CONVERSION_MENU_WIDTH) / 2,
+                           (CALC_HEIGHT - CONVERSION_MENU_HEIGHT) / 2,
+                           CONVERSION_MENU_WIDTH,
+                           CONVERSION_MENU_HEIGHT },
+                Color{ 175, 175, 175, 255 });
+    uim.getMenu("Conversions Base")
+        .addButton(Rectangle{ CONVERSION_MENU_WIDTH - 110, 10, 100, 40 }, Color{ 150, 150, 150, 255 }, &uim.getMenu("Conversions Base"), "Close");
+
+    uim.addMenu("Conversions Length",
+                Rectangle{ (CALC_WIDTH - CONVERSION_MENU_WIDTH) / 2,
+                           (CALC_HEIGHT - CONVERSION_MENU_HEIGHT) / 2,
+                           CONVERSION_MENU_WIDTH,
+                           CONVERSION_MENU_HEIGHT },
+                Color{ 175, 175, 175, 255 });
+    uim.getMenu("Conversions Length")
+        .addButton(Rectangle{ CONVERSION_MENU_WIDTH - 110, 10, 100, 40 }, Color{ 150, 150, 150, 255 }, &uim.getMenu("Conversions Length"), "Close");
+
+    uim.addMenu("Conversions Mass",
+                Rectangle{ (CALC_WIDTH - CONVERSION_MENU_WIDTH) / 2,
+                           (CALC_HEIGHT - CONVERSION_MENU_HEIGHT) / 2,
+                           CONVERSION_MENU_WIDTH,
+                           CONVERSION_MENU_HEIGHT },
+                Color{ 175, 175, 175, 255 });
+    uim.getMenu("Conversions Mass")
+        .addButton(Rectangle{ CONVERSION_MENU_WIDTH - 110, 10, 100, 40 }, Color{ 150, 150, 150, 255 }, &uim.getMenu("Conversions Mass"), "Close");
+
+    uim.addMenu("Conversions Temperature",
+                Rectangle{ (CALC_WIDTH - CONVERSION_MENU_WIDTH) / 2,
+                           (CALC_HEIGHT - CONVERSION_MENU_HEIGHT) / 2,
+                           CONVERSION_MENU_WIDTH,
+                           CONVERSION_MENU_HEIGHT },
+                Color{ 175, 175, 175, 255 });
+    uim.getMenu("Conversions Temperature")
+        .addButton(Rectangle{ CONVERSION_MENU_WIDTH - 110, 10, 100, 40 }, Color{ 150, 150, 150, 255 }, &uim.getMenu("Conversions Temperature"), "Close");
+
+    uim.addMenu("Conversions Angle",
+                Rectangle{ (CALC_WIDTH - CONVERSION_MENU_WIDTH) / 2,
+                           (CALC_HEIGHT - CONVERSION_MENU_HEIGHT) / 2,
+                           CONVERSION_MENU_WIDTH,
+                           CONVERSION_MENU_HEIGHT },
+                Color{ 175, 175, 175, 255 });
+    uim.getMenu("Conversions Angle")
+        .addButton(Rectangle{ CONVERSION_MENU_WIDTH - 110, 10, 100, 40 }, Color{ 150, 150, 150, 255 }, &uim.getMenu("Conversions Angle"), "Close");
+
+    uim.addMenu("Conversions Digital Storage",
+                Rectangle{ (CALC_WIDTH - CONVERSION_MENU_WIDTH) / 2,
+                           (CALC_HEIGHT - CONVERSION_MENU_HEIGHT) / 2,
+                           CONVERSION_MENU_WIDTH,
+                           CONVERSION_MENU_HEIGHT },
+                Color{ 175, 175, 175, 255 });
+    uim.getMenu("Conversions Digital Storage")
+        .addButton(Rectangle{ CONVERSION_MENU_WIDTH - 110, 10, 100, 40 }, Color{ 150, 150, 150, 255 }, &uim.getMenu("Conversions Digital Storage"), "Close");
+
+
+
+    uim.getMenu("Conversions Base")
+        .addButton(
+            Rectangle{ (CONVERSION_MENU_WIDTH - 260) / 2,
+                       (CONVERSION_MENU_HEIGHT - 60) / 6 + 30,
+                       260,
+                       60 },
+            Color{ 150, 150, 150, 255 },
+            &uim.getMenu("Conversions Length"),
+            "Length");
+
+    uim.getMenu("Conversions Base")
+        .addButton(
+            Rectangle{ (CONVERSION_MENU_WIDTH - 260) / 2,
+                       (CONVERSION_MENU_HEIGHT - 60) * 2 / 6 + 30,
+                       260,
+                       60 },
+            Color{ 150, 150, 150, 255 },
+            &uim.getMenu("Conversions Mass"),
+            "Mass");
+
+    uim.getMenu("Conversions Base")
+        .addButton(
+            Rectangle{ (CONVERSION_MENU_WIDTH - 260) / 2,
+                       (CONVERSION_MENU_HEIGHT - 60) * 3 / 6 + 30,
+                       260,
+                       60 },
+            Color{ 150, 150, 150, 255 },
+            &uim.getMenu("Conversions Temperature"),
+            "Temperature");
+
+    uim.getMenu("Conversions Base")
+        .addButton(
+            Rectangle{ (CONVERSION_MENU_WIDTH - 260) / 2,
+                       (CONVERSION_MENU_HEIGHT - 60) * 4 / 6 + 30,
+                       260,
+                       60 },
+            Color{ 150, 150, 150, 255 },
+            &uim.getMenu("Conversions Angle"),
+            "Angle");
+
+    uim.getMenu("Conversions Base")
+        .addButton(
+            Rectangle{ (CONVERSION_MENU_WIDTH - 260) / 2,
+                       (CONVERSION_MENU_HEIGHT - 60) * 5 / 6 + 30,
+                       260,
+                       60 },
+            Color{ 150, 150, 150, 255 },
+            &uim.getMenu("Conversions Digital Storage"),
+            "Digital Storage");
+}
+
+
 int main()
 {
     InitWindow(CALC_WIDTH, CALC_HEIGHT, "Calculator");
@@ -22,73 +137,7 @@ int main()
 
     UIManager uimanager(&uiFont);
 
-    uimanager.addMenu("Base", Rectangle{ 20, 280, CALC_WIDTH - 40, CALC_HEIGHT - 300 }, Color{ 175, 175, 175, 255 });
-    uimanager.getMenu("Base").toggle();
-
-    uimanager.addMenu(
-        "Conversions Base",
-        Rectangle{ (CALC_WIDTH - CONVERSION_MENU_WIDTH) / 2,
-                   (CALC_HEIGHT - CONVERSION_MENU_HEIGHT) / 2,
-                   CONVERSION_MENU_WIDTH,
-                   CONVERSION_MENU_HEIGHT },
-        Color{ 175, 175, 175, 255 });
-
-    // uimanager.addMenu(
-    //     "Conversions Length",
-    //     Rectangle{ (CALC_WIDTH - CONVERSION_MENU_WIDTH) / 2,
-    //                (CALC_HEIGHT - CONVERSION_MENU_HEIGHT) / 2,
-    //                CONVERSION_MENU_WIDTH,
-    //                CONVERSION_MENU_HEIGHT },
-    //     Color{ 175, 175, 175, 255 });
-
-    uimanager.getMenu("Base").addButton(Rectangle{ 20, 20, 210, 50 }, Color{ 150, 150, 150, 255 }, &uimanager.getMenu("Conversions Base"), "Conversions");
-    uimanager.getMenu("Conversions Base")
-        .addButton(Rectangle{ CONVERSION_MENU_WIDTH - 110, 10, 100, 40 }, Color{ 150, 150, 150, 255 }, &uimanager.getMenu("Conversions Base"), "Close");
-
-    uimanager.getMenu("Conversions Base")
-        .addButton(Rectangle{ (CONVERSION_MENU_WIDTH - 260) / 2,
-                              (CONVERSION_MENU_HEIGHT - 60) / 6 + 30,
-                              260,
-                              60 },
-                   Color{ 150, 150, 150, 255 },
-                   0,
-                   "Length");
-
-    uimanager.getMenu("Conversions Base").addButton(
-        Rectangle{ (CONVERSION_MENU_WIDTH - 260) / 2,
-                   (CONVERSION_MENU_HEIGHT - 60) * 2 / 6 + 30,
-                   260,
-                   60 },
-        Color{ 150, 150, 150, 255 },
-        nullptr,
-        "Mass");
-
-    uimanager.getMenu("Conversions Base").addButton(
-        Rectangle{ (CONVERSION_MENU_WIDTH - 260) / 2,
-                   (CONVERSION_MENU_HEIGHT - 60) * 3 / 6 + 30,
-                   260,
-                   60 },
-        Color{ 150, 150, 150, 255 },
-        nullptr,
-        "Temperature");
-
-    uimanager.getMenu("Conversions Base").addButton(
-        Rectangle{ (CONVERSION_MENU_WIDTH - 260) / 2,
-                   (CONVERSION_MENU_HEIGHT - 60) * 4 / 6 + 30,
-                   260,
-                   60 },
-        Color{ 150, 150, 150, 255 },
-        nullptr,
-        "Angle");
-
-    uimanager.getMenu("Conversions Base").addButton(
-        Rectangle{ (CONVERSION_MENU_WIDTH - 260) / 2,
-                   (CONVERSION_MENU_HEIGHT - 60) * 5 / 6 + 30,
-                   260,
-                   60 },
-        Color{ 150, 150, 150, 255 },
-        nullptr,
-        "Digital Storage");
+    setupUI(uimanager);
 
     while (!WindowShouldClose()) {
         int charPressed = GetCharPressed();
