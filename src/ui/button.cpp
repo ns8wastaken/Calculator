@@ -33,10 +33,8 @@ bool Button::update(Vector2 mousePos)
 
 void Button::render()
 {
-    DrawRectangleRec(m_rect, { 200, 200, 200, 255 });
-    DrawRectangleLinesEx(m_rect,
-                         4,
-                         m_colorDark);
+    DrawRectangleRounded(m_rect, 0.3, 2, Color{ 200, 200, 200, 255 });
+    DrawRectangleRoundedLines(m_rect, 0.3, 2, 4, m_colorDark);
 
     Vector2 textSize = MeasureTextEx(*p_font, m_text, 30, 0);
     DrawTextEx(*p_font, m_text, Vector2{ m_rect.x + (m_rect.width - textSize.x) / 2, m_rect.y + (m_rect.height - textSize.y) / 2 + 3 }, 30, 0, Color{ 20, 20, 20, 255 });

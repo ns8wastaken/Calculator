@@ -1,4 +1,5 @@
 #include "calculator.hpp"
+
 #include "converter.cpp"
 
 
@@ -42,7 +43,7 @@ bool Calculator::m_isValidChar(int char_)
 
 void Calculator::addCharToEquation(int charUnicode)
 {
-    if (!m_isValidChar(charUnicode))
+    if (!m_isValidChar(charUnicode) || m_Equation.length() > 28)
         return;
 
     char newChar = static_cast<char>(charUnicode);
@@ -85,12 +86,12 @@ void Calculator::moveCursor(int offset)
 
 
 // Returns a stack of operations in infix order
-std::deque<Token> Calculator::m_ParseStrEquation(std::string equation)
+std::deque<Token> Calculator::m_ParseStrEquation(const std::string& equation)
 {
     std::deque<Token> output{};
     std::string tempDigit{};
 
-    for (char& _char : equation) {
+    for (const char& _char : equation) {
         if (std::isdigit(_char) || _char == '.')
             tempDigit += _char;
 

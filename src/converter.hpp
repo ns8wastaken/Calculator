@@ -40,6 +40,29 @@ public:
         Begin = 0
     };
 
+    enum class VolumeUnit
+    {
+        US_Gallon,
+        US_Quart,
+        US_Pint,
+        US_Ounce,
+        US_Tablespoon,
+        US_Teaspoon,
+
+        Imperial_Gallon,
+        Imperial_Quart,
+        Imperial_Pint,
+        Imperial_Ounce,
+        Imperial_Tablespoon,
+        Imperial_Teaspoon,
+
+        Liter,
+        Milliliter,
+
+        Size,
+        Begin = 0
+    };
+
     enum class TemperatureUnit
     {
         Celsius,
@@ -89,12 +112,14 @@ public:
 private:
     double toBaseUnit(double value, LengthUnit unit);
     double toBaseUnit(double value, MassUnit unit);
+    double toBaseUnit(double value, VolumeUnit unit);
     double toBaseUnit(double value, TemperatureUnit unit);
     double toBaseUnit(double value, AngleUnit unit);
     double toBaseUnit(double value, DigitalStorageUnit unit);
 
     double fromBaseUnit(double value, LengthUnit unit);
     double fromBaseUnit(double value, MassUnit unit);
+    double fromBaseUnit(double value, VolumeUnit unit);
     double fromBaseUnit(double value, TemperatureUnit unit);
     double fromBaseUnit(double value, AngleUnit unit);
     double fromBaseUnit(double value, DigitalStorageUnit unit);

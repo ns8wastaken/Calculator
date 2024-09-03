@@ -44,29 +44,31 @@ bool Menu::isOpen()
 void Menu::addButton(Rectangle buttonRect, Color color, Menu* menuChild, const char* text)
 {
     m_buttons.push_back(
-        Button(Rectangle{
-                   m_rect.x + buttonRect.x,
-                   m_rect.y + buttonRect.y,
-                   buttonRect.width,
-                   buttonRect.height },
-               color,
-               menuChild,
-               p_font,
-               text));
+        Button(
+            Rectangle{
+                m_rect.x + buttonRect.x,
+                m_rect.y + buttonRect.y,
+                buttonRect.width,
+                buttonRect.height },
+            color,
+            menuChild,
+            p_font,
+            text));
 }
 
 
 void Menu::addLabel(Rectangle labelRect, Color color, const char* text)
 {
     m_labels.push_back(
-        Label(Rectangle{
-                  m_rect.x + labelRect.x,
-                  m_rect.y + labelRect.y,
-                  labelRect.width,
-                  labelRect.height },
-              color,
-              text,
-              p_font));
+        Label(
+            Rectangle{
+                m_rect.x + labelRect.x,
+                m_rect.y + labelRect.y,
+                labelRect.width,
+                labelRect.height },
+            color,
+            text,
+            p_font));
 }
 
 
@@ -84,8 +86,8 @@ void Menu::render()
 {
     if (!m_open) return;
 
-    DrawRectangleRec(m_rect, m_color);
-    DrawRectangleLinesEx(m_rect, 4, m_colorDark);
+    DrawRectangleRounded(m_rect, 0.05, 4, m_color);
+    DrawRectangleRoundedLines(m_rect, 0.05, 4, 4, m_colorDark);
 
     for (Button& button : m_buttons) {
         button.render();

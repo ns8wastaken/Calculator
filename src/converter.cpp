@@ -50,6 +50,32 @@ double UnitConverter::toBaseUnit(double value, MassUnit unit)
     return 0.0;
 }
 
+double UnitConverter::toBaseUnit(double value, VolumeUnit unit)
+{
+    switch (unit) {
+        case VolumeUnit::US_Gallon:           return value * 3.785411784;
+        case VolumeUnit::US_Quart:            return value * 0.946353;
+        case VolumeUnit::US_Pint:             return value / 2.1134;
+        case VolumeUnit::US_Ounce:            return value / 33.814;
+        case VolumeUnit::US_Tablespoon:       return value * 0.014787;
+        case VolumeUnit::US_Teaspoon:         return value * 0.004929;
+
+        case VolumeUnit::Imperial_Gallon:     return value * 4.546091879;
+        case VolumeUnit::Imperial_Quart:      return value / 0.87987663;
+        case VolumeUnit::Imperial_Pint:       return value * 0.568261485;
+        case VolumeUnit::Imperial_Ounce:      return value * 0.0284130742;
+        case VolumeUnit::Imperial_Tablespoon: return value * 0.0177581714;
+        case VolumeUnit::Imperial_Teaspoon:   return value * 0.00591939047;
+
+        case VolumeUnit::Liter:               return value;
+        case VolumeUnit::Milliliter:          return value / 1000.0;
+
+        case VolumeUnit::Size:                return 0.0;
+    }
+
+    return 0.0;
+}
+
 double UnitConverter::toBaseUnit(double value, TemperatureUnit unit)
 {
     switch (unit) {
@@ -141,6 +167,32 @@ double UnitConverter::fromBaseUnit(double value, MassUnit unit)
         case MassUnit::Ounce:        return value / 28.3495;
 
         case MassUnit::Size:         return 0.0;
+    }
+
+    return 0.0;
+}
+
+double UnitConverter::fromBaseUnit(double value, VolumeUnit unit)
+{
+    switch (unit) {
+        case VolumeUnit::US_Gallon:           return value / 3.785411784;
+        case VolumeUnit::US_Quart:            return value / 0.946353;
+        case VolumeUnit::US_Pint:             return value * 2.1134;
+        case VolumeUnit::US_Ounce:            return value * 33.814;
+        case VolumeUnit::US_Tablespoon:       return value / 0.014787;
+        case VolumeUnit::US_Teaspoon:         return value / 0.004929;
+
+        case VolumeUnit::Imperial_Gallon:     return value / 4.546091879;
+        case VolumeUnit::Imperial_Quart:      return value * 0.87987663;
+        case VolumeUnit::Imperial_Pint:       return value / 0.568261485;
+        case VolumeUnit::Imperial_Ounce:      return value / 0.0284130742;
+        case VolumeUnit::Imperial_Tablespoon: return value / 0.0177581714;
+        case VolumeUnit::Imperial_Teaspoon:   return value / 0.00591939047;
+
+        case VolumeUnit::Liter:               return value;
+        case VolumeUnit::Milliliter:          return value * 1000.0;
+
+        case VolumeUnit::Size:                return 0.0;
     }
 
     return 0.0;

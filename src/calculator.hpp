@@ -56,7 +56,7 @@ private:
         { '!', false }
     };
 
-    std::deque<Token> m_ParseStrEquation(std::string equation);
+    std::deque<Token> m_ParseStrEquation(const std::string& equation);
     std::deque<Token> m_InfixToPostfix(std::deque<Token> infixStack);
     double m_EvaluatePostfix(std::deque<Token> postfixStack);
 };
